@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>SORTEIO PES</title>
+<style>
+    *{
+        box-sizing: border-box;
+        border: 0;
+        margin: 0;
+        }
+
+        body{
+            background-color: gray;
+            text-align: center;
+        }
+
+        .page-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 10px;
+
+        }
+
+        select{
+            width: 350px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        p{
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        #btn-selecionar-jogador{
+            border-radius: 10px;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            font-size: 25px;
+        }
+        .pai{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .jogador_times{
+            display: flex;
+            flex-direction: column;
+            justify-content: center ;
+            align-items: center;
+    
+        }
+
+        .jogador_times img{
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+             margin-left: 10px;
+             margin-bottom: 10px;
+            border-radius: 50%;
+            object-fit: fill;
+            border: 3px solid black;
+        }
+
+        .Luan, .Beto, .Pedro, .Igor img{
+            object-fit: cover;
+        }
+
+        .header {
+            margin: 20px 0;
+            font-size: 30px;
+        }
+
+</style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="#" id="del">LIMPAR</a>
+    </div>
+
+    <div class="page-content">
+
+        <h1> SORTEIO DE PES VERSÃO 1.0</h1>
+
+
+        <div class="selecao-jogador">
+
+            <p>SELECIONE UM JOGADOR:</p>
+
+ <select name="selecao-jogador" id="selecao-jogador">
+    <option>Luan</option>
+    <option>Beto</option>
+    <option>Pedro</option>
+    <option>Igor</option>
+    
+</select>
+
+        </div>
+
+ 
+        
+
+        <div class="selecao-continente">
+
+            <p>SELECIONE UM CONTINENTE:</p>
+
+            <select name="selecao-continente" id="selecao-continente">
+    <option>Europa</option>
+    <option disabled>América do Sul</option>
+</select>
+
+ </div>
+
+
+
+<button id="btn-selecionar-jogador">SELECIONAR</button>
+
+
+
+
+<div class="pai">
+
+
+    <div class="jogador_times">
+        <img src="img/luan.jpeg" class="fotoperfil">
+        <img src="img/indefinido.jpg" class="Luan">
+    </div>
+
+
+     <div class="jogador_times">
+        <img src="img/beto.jpeg" class="fotoperfil">
+        <img src="img/indefinido.jpg" class="Beto">
+    </div>
+
+     <div class="jogador_times">
+        <img src="img/pedro.jpeg" class="fotoperfil">
+        <img src="img/indefinido.jpg" class="Pedro">
+    </div>
+
+     <div class="jogador_times">
+        <img src="img/igor.jpeg" class="fotoperfil">
+        <img src="img/indefinido.jpg" class="Igor">
+    </div>
+
+       </div>
+
+             <span><h4> By: Luan DevWeb </h4></span>
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+// ACESSANDO O SERVIDOR PARA FAZER REQUISIÇÕES
+
+fetch("backend.json")
+.then(response => response.json())
+.then(data => {
+    console.log("Sucesso ao fazer a requisição. :)");
+
+// SALVANDO A REQUISIÇÃO NO BANCO DE DADOS LOCAL
+
+var salvarLocalmente = localStorage.setItem("requisicao",JSON.stringify(data))
+
+    console.log("A requisição foi salva no banco de dados local :)")
+  
+})
+
+.catch( error => console.error("Erro ao fazer a requisição. :/" , error));
+
+
+
+ 
+
+// COMANDO PARA QUANDO APERTAR NO BOTÃO SELECIONAR ADICIONAR O NOME DO JOGADOR NO BANCO DE DADOS LOCAL
+var clicouBotao = document.getElementById("btn-selecionar-jogador")
+clicouBotao.addEventListener("click", function(){
+
+    var captura_times_bd_local = JSON.parse(localStorage.getItem("requisicao"))
+
+ var capturaContinente =  document.getElementById("selecao-continente").value
+
+ var confronto = captura_times_bd_local.find( tbd => tbd.Continente === capturaContinente)
+
+ if(confronto){
+
+    var capturaNome =  document.getElementById("selecao-jogador").value
+
+    captura_times_bd_local.forEach(c => {
+
+    var sorteio = Math.floor(Math.random() * c.times.length)
+
+    var timesRecuperados = c.times.splice(sorteio,1)
+
+  timesRecuperados.forEach(t => {
+
+    localStorage.setItem(capturaNome,JSON.stringify(t))
+
+$("."+capturaNome).attr('src', t.imagem)
+
+     localStorage.setItem("requisicao",JSON.stringify(captura_times_bd_local))
+    
+  })
+
+ 
+    
+    })
+
+ } else{
+
+    console.log("Não existe esse continente no banco de Dados", capturaContinente )
+ }
+
+
+
+
+
+ 
+
+ // APÓS CAPTURAR O NOME DO JOGADOR SALVAR NO BANCO DE DADOS LOCAL
+
+
+
+
+ 
+});
+
+document.getElementById("del").addEventListener("click",function(){
+    localStorage.clear()
+    alert("Você apagou o Banco de Dados")
+    window.location.href="index.html"
+})
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>
+

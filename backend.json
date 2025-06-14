@@ -1,0 +1,143 @@
+[
+    {
+
+        "Continente": "Europa",
+        "times": [
+            {
+                "time" : "Real Madrid",
+                "imagem": "img/realmadrid.png"
+            },
+            {
+                "time" : "Barcelona",
+                "imagem": "img/barcelona.png"
+            },
+            {
+                "time" : "Atlético de Madrid",
+                "imagem": "img/atleticodemadrid.png"
+            },
+            {
+                "time" : "Chelsea",
+                "imagem": "img/chelsea.png"
+            },
+
+            {
+                "time" : "Liverpool",
+                "imagem": "img/liverpool.png"
+            },
+
+            {
+                "time" : "Manchester United",
+                "imagem": "img/united.png"
+            },
+            
+            {
+                "time" : "Manchester City",
+                "imagem": "img/city.png"
+            },
+
+            {
+                "time" : "Arsenal",
+                "imagem": "img/arsenal.png"
+            },
+
+             {
+                "time" : "Aston Vila",
+                "imagem": "img/aston.png"
+            },
+             {
+                "time" : "Arsenal",
+                "imagem": "img/arsenal.png"
+            },
+
+             {
+                "time" : "Atalanta",
+                "imagem": "img/atalanta.png"
+            },
+            {
+                "time" : "Atlético Bilbão",
+                "imagem": "img/athletic.png"
+            },
+
+        {
+                "time" : "Bayern Munich",
+                "imagem": "img/bayernmu.png"
+            },
+             {
+                "time" : "Dortmund",
+                "imagem": "img/dortmund.png"
+            },
+            {
+                "time" : "Everton",
+                "imagem": "img/everton.png"
+            },
+            {
+                "time" : "Fulham",
+                "imagem": "img/fulham.png"
+            },
+            {
+                "time" : "Inter de Milão",
+                "imagem": "img/intermilao.png"
+            },
+             {
+                "time" : "Juventus",
+                "imagem": "img/juventus.png"
+            },
+             {
+                "time" : "Lazio",
+                "imagem": "img/lazio.png"
+            },
+             {
+                "time" : "Leverkusen",
+                "imagem": "img/leverkusen.png"
+            },
+             {
+                "time" : "Marseille",
+                "imagem": "img/marseille.png"
+            },
+            {
+                "time" : "Milan",
+                "imagem": "img/milan.png"
+            },
+            {
+                "time" : "PSG",
+                "imagem": "img/psg.png"
+            },
+            {
+                "time" : "RB LEIPZIG",
+                "imagem": "img/rb_leipzig_ale.png"
+            },
+             {
+                "time" : "Roma",
+                "imagem": "img/roma.png"
+            },
+            {
+                "time" : "Tottenham",
+                "imagem": "img/tottenham.png"
+            },
+            {
+                "time" : "Westham",
+                "imagem": "img/westham.png"
+            }
+            
+            
+            
+            
+            
+            
+
+
+            
+            
+            
+            
+            
+            
+
+
+        ]
+
+
+
+    
+    }
+]
