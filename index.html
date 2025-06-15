@@ -22,7 +22,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 50px;
+            gap: 15px;
             margin-top: 10px;
 
         }
@@ -46,30 +46,38 @@
             font-size: 25px;
         }
         .pai{
+            width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .jogador_times{
+            width: 100px;
+            height: 203px;
             display: flex;
             flex-direction: column;
             justify-content: center ;
             align-items: center;
-    
         }
 
+         .jogador_times span{
+            height: 33px;
+        }
         .jogador_times img{
             width: 80px;
             height: 80px;
-            margin-right: 10px;
-             margin-left: 10px;
-             margin-bottom: 10px;
+            margin-right: 5px;
+             margin-left: 5px;
+             margin-bottom: 5px;
             border-radius: 50%;
             object-fit: fill;
             border: 3px solid black;
+            padding: 3px;
         }
 
+
+       
         .Luan, .Beto, .Pedro, .Igor img{
             object-fit: cover;
         }
@@ -79,7 +87,26 @@
             font-size: 30px;
         }
 
+      
+        .bolsao-europeu{
+            margin: auto;
+            padding: 10px;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            border: 3px solid black;
+            
+        }
+      
+
+       
+           
+    
 </style>
+
+    
 </head>
 <body>
 
@@ -89,7 +116,7 @@
 
     <div class="page-content">
 
-        <h1> SORTEIO DE PES VERSÃO 1.0</h1>
+        <h1> SORTEIO DE PES VERSÃO 1.1</h1>
 
 
         <div class="selecao-jogador">
@@ -133,31 +160,42 @@
     <div class="jogador_times">
         <img src="img/luan.jpeg" class="fotoperfil">
         <img src="img/indefinido.jpg" class="Luan">
+        <span class="time-Luan">Escolher</span>
     </div>
 
 
      <div class="jogador_times">
         <img src="img/beto.jpeg" class="fotoperfil">
         <img src="img/indefinido.jpg" class="Beto">
+        <span class="time-Beto">Escolher</span>
     </div>
 
      <div class="jogador_times">
         <img src="img/pedro.jpeg" class="fotoperfil">
         <img src="img/indefinido.jpg" class="Pedro">
+        <span class="time-Pedro">Escolher</span>
     </div>
 
      <div class="jogador_times">
         <img src="img/igor.jpeg" class="fotoperfil">
         <img src="img/indefinido.jpg" class="Igor">
+        <span class="time-Igor">Escolher</span>
     </div>
 
        </div>
 
-             <span><h4> By: Luan DevWeb </h4></span>
-
+        
        </div>
 
+       <h1>BOLSÃO EUROPEU :</h1>
 
+       <div class="bolsao-europeu">
+        
+        <img src="img/t1.png">
+        <img src="img/t3.jpg">
+         <img src="img/t2.jpg">
+          
+       </div>
 
 
 
@@ -189,6 +227,8 @@ var salvarLocalmente = localStorage.setItem("requisicao",JSON.stringify(data))
 
 
 
+
+
  
 
 // COMANDO PARA QUANDO APERTAR NO BOTÃO SELECIONAR ADICIONAR O NOME DO JOGADOR NO BANCO DE DADOS LOCAL
@@ -216,8 +256,11 @@ clicouBotao.addEventListener("click", function(){
     localStorage.setItem(capturaNome,JSON.stringify(t))
 
 $("."+capturaNome).attr('src', t.imagem)
+$(".time-"+capturaNome).html(t.time)
 
      localStorage.setItem("requisicao",JSON.stringify(captura_times_bd_local))
+
+  alert(`O jogador ${capturaNome} escolheu o time : ${t.time}`)
     
   })
 

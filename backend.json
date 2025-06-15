@@ -117,8 +117,45 @@
             {
                 "time" : "Westham",
                 "imagem": "img/westham.png"
+            },
+            
+            {
+                "time" : "Ajax",
+                "imagem": "img/ajax.png"
+            },
+
+            {
+                "time" : "Benfica",
+                "imagem": "img/benfica.png"
+            },
+
+            {
+                "time" : "Napoli",
+                "imagem": "img/napoli.png"
+            },
+
+            
+            {
+                "time" : "Fiorentina",
+                "imagem": "img/fiore.png"
+            },
+            
+
+            
+            {
+                "time" : "Porto",
+                "imagem": "img/porto.png"
+            },
+
+               
+            {
+                "time" : "PSV",
+                "imagem": "img/psv.png"
             }
             
+            
+            
+
             
             
             
